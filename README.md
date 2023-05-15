@@ -78,3 +78,68 @@ Rv1 :Random variable 1, non-dimensional
 Rv2 :Random variable 2, non-dimensional
 
 Appliances : Total energy used by appliances, in Wh
+
+# Manipulations on Dataset-
+
+) Since, this is not a timeseries problem and we will focus on predicting the appliance consumption , we can ignore Date column.
+
+Independent variables : 27(11 temperature, 10 humidity, 1 pressure, 2 randoms)
+
+Dependent variable : 1 (Appliances)
+
+# Observations-
+
+Temperature columns - Temperature inside the house varies between 14.89 Deg & 29.85 Deg , temperature outside (T6) varies between -6.06 Deg to 28.29 Deg . The reason for this variation is sensors are kept outside the house.
+
+Humidiy columns - Humidity inside house varies is between 20.60% to 63.36% with exception of RH_5 (Bathroom) and RH_6 (Outside house) which varies between 29.82% to 96.32% and 1% to 99.9% respectively.
+
+Appliances - 75% of Appliance consumption is less than 100 Wh . With the maximum consumption of 1080 Wh , there will be outliers in this column and there are small number of cases where consumption is very high.
+
+Lights column - Intially I believed lights column will be able to give useful information . With 11438 0 (zero) enteries in 14801 rows , this column will not add any value to the model . I believed light consumption along with humidity level in a room will give idea about human presence in the room and hence its impact on Appliance consumption. Hence, we will drop it during feature selection.
+
+# Feature ranges-
+
+Temperature : -6 to 30 deg
+
+Humidity : 1 to 100 %
+
+Windspeed : 0 to 14 m/s
+
+Visibility : 1 to 66 km
+
+Pressure : 729 to 772 mm Hg
+
+Appliance Energy Usage : 10 to 1080 Wh
+
+# Final result of all applied models-
+![image](https://github.com/pratap-vj/Appliance-Energy-Prediction/assets/123111274/920f6eeb-f415-40fb-8bd5-f086e46ff354)
+
+# Conclusion-
+The overall conclusion of the project is as follows:
+
+# Data Analysis: 
+    The data analysis phase involved exploring and understanding the dataset. Various visualizations and statistical tests were performed to gain insights into the variables and their relationships.
+
+# Feature Selection: 
+    The feature selection process helped identify the most relevant variables for predicting appliance energy consumption. Some variables exhibited a strong correlation with the target variable, while others showed little to no relationship.
+
+# Model Building: 
+    Several machine learning models were built and evaluated for predicting appliance energy consumption. Different algorithms, such as linear regression, random forest, and gradient boosting, were employed. Evaluation metrics such as R2 score, RMSE, and training time were used to assess the performance of each model.
+
+# Hyperparameter Tuning: 
+    Hyperparameter tuning techniques were applied to improve the model performance. GridSearch CV was used to search for the best combination of hyperparameters, resulting in improved scores for some models.
+
+# Model Selection: 
+    Based on the evaluation metrics, the ExtraTreeRegressor model emerged as the best performer, with high R2 scores, low RMSE, and comparable training and test performance. This model was chosen as the final prediction model.
+
+# Feature Importance: 
+    The importance of features was assessed using the ExtraTreesRegressor model. The features RH_5(Humidity in bathroom), T1(Temperature in kitchen area), Windspeed and RH_1(Humidity in kitchen area) were found to have the highest importance for predicting appliance energy consumption.
+
+# Business Impact: 
+    The insights gained from the project can be valuable for various stakeholders. Understanding the factors influencing appliance energy consumption can help in making informed decisions for energy management, efficiency improvements, and cost savings. The chosen ExtraTreeRegressor model can be used to predict appliance energy consumption accurately, enabling proactive measures for energy optimization.
+
+# The project successfully analyzed the dataset, built and evaluated multiple models, and selected the best performing model for predicting appliance energy consumption. The findings can contribute to making data-driven decisions for energy management and have a positive business impact.
+
+
+
+
